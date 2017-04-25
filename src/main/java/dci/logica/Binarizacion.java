@@ -21,21 +21,21 @@ public class Binarizacion implements Filtro {
         //Color[][] color=im.imagen;
         Color[][] color = new Color[256][256];
 
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
+        for (int i = 0; i < 256; i++) {
+            for (int j = 0; j < 256; j++) {
                 int nuevoRojo = 0;
                 int nuevoAzul = 0;
                 int nuevoVerde = 0;
                 int rojo = color[i][j].getRed();
                 int azul = color[i][j].getBlue();
                 int verde = color[i][j].getGreen();
-                if (rojo > Umbral) {
+                if (rojo >= Umbral) {
                     nuevoRojo = 255;
                 }
-                if (azul > Umbral) {
+                if (azul >= Umbral) {
                     nuevoAzul = 255;
                 }
-                if (verde > Umbral) {
+                if (verde >= Umbral) {
                     nuevoVerde = 255;
                 }
 
