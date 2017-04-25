@@ -16,19 +16,16 @@ public class EscalaDeGrises implements Filtro {
 
     @Override
     public Imagen aplicarFiltro(Imagen im) {
-        BufferedImage image = null;
-        for (int x = 0; x < image.getWidth(); x++) {
-            for (int y = 0; y < image.getHeight(); y++) {
-                Color clr = new Color(image.getRGB(x, y));
-                int r = clr.getRed();
-                int g = clr.getGreen();
-                int b = clr.getBlue();
+        for (int x = 0; x < im.ancho; x++) {
+            for (int y = 0; y < im.alto; y++) {
+                int r = im.bitmap[x][y].getRed();
+                int g = im.bitmap[x][y].getGreen();
+                int b = im.bitmap[x][y].getBlue();
                 int gris = Math.round((float) (r + g + b) / 3);
-                Color clr2 = new Color(gris, gris, gris);
-                image.setRGB(x, y, clr2.getRGB());
+                im.bitmap[x][y] = new Color(gris, gris, gris);
             }
         }
-        return new Imagen();
+        return im;
     }
 
 }
