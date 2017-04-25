@@ -13,43 +13,29 @@ import javax.swing.JPanel;
  *
  * @author Note
  */
-public class PanelBotones extends JPanel{
-    
-    public JButton btnNegativo, btnReflejar, btnBinarizacion, btnPixels,
-            btnEscalaGrises, btnConvolucion, btnExt1, btnExt2;
-    
+public class PanelBotones extends JPanel {
+
+    public JButton btnNegativo;
+    public JButton btnBinarizacion;
+    public JButton btnEscalaGrises;
+
     public PanelBotones() {
         this.initComponent();
     }
-    
+
     private void initComponent() {
-        BoxLayout distribucion = new BoxLayout(this,3);
+        BoxLayout distribucion = new BoxLayout(this, 3);
         this.setLayout(distribucion);
-        
+
         this.btnNegativo = new JButton("Negativo");
         this.add(this.btnNegativo);
 
-        this.btnReflejar = new JButton("Reflejar");
-        this.add(this.btnReflejar);
-        
-        this.btnPixels = new JButton("Binarización");
-        this.add(this.btnPixels);
-        
-        this.btnBinarizacion = new JButton("Pixels");
+        this.btnBinarizacion = new JButton("btnBinarizacion");
         this.add(this.btnBinarizacion);
-        
+
         this.btnEscalaGrises = new JButton("Escala de Grises");
         this.add(this.btnEscalaGrises);
-        
-        this.btnConvolucion = new JButton("Convolución");
-        this.add(this.btnConvolucion);
-        
-        this.btnExt1 = new JButton("Extensión 1");
-        this.add(this.btnExt1);
-        
-        this.btnExt2 = new JButton("Extensión 2");
-        this.add(this.btnExt2);
 
     }
-    
+
 }

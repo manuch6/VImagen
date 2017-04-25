@@ -33,7 +33,7 @@ public class PanelImagen extends JPanel{
         this.initComponent();
     }
     
-    public void initComponent(){
+    private void initComponent(){
         
         BoxLayout distribucion = new BoxLayout(this,1);
         this.setLayout(distribucion);
@@ -41,7 +41,7 @@ public class PanelImagen extends JPanel{
         try {
             
             //img = ImageIO.read(new File(imagen.getPath()));
-            img = ImageIO.read(new File("F:\\material.jpg"));
+            img = ImageIO.read(new File("data/imagen.bmp"));
             icon = new ImageIcon(img);
             label = new JLabel(icon);
         
