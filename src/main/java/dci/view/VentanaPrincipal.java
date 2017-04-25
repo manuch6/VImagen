@@ -5,10 +5,12 @@
  */
 package dci.view;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author dci
  */
-public class VentanaPrincipal {
+public class VentanaPrincipal extends JFrame{
     
 }
