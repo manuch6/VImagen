@@ -11,8 +11,6 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 
@@ -26,22 +24,46 @@ public class Imagen {
     public int ancho;
     public int alto;
 
+    public Color[][] getBitmap() {
+        return bitmap;
+    }
+
+    public void setBitmap(Color[][] bitmap) {
+        this.bitmap = bitmap;
+    }
+
+    public int getAncho() {
+        return ancho;
+    }
+
+    public void setAncho(int ancho) {
+        this.ancho = ancho;
+    }
+
+    public int getAlto() {
+        return alto;
+    }
+
+    public void setAlto(int alto) {
+        this.alto = alto;
+    }
+
     public Imagen() {
     }
 
-    public void CargarImagen() throws FileNotFoundException, IOException {
+    public void cargarImagen() throws FileNotFoundException, IOException {
 
         InputStream input = new FileInputStream("data/imagen.bmp");
         ImageInputStream imageInput = ImageIO.createImageInputStream(input);
         BufferedImage imagenL = ImageIO.read(imageInput);
-
-        alto = imagenL.getHeight();
-        ancho = imagenL.getWidth();
+        
+        setAlto(imagenL.getHeight());
+        setAncho(imagenL.getWidth());
 
         if (imagenL.getHeight() > 300) {
-            alto = 300;
+            setAlto(300);
         } else if (imagenL.getHeight() > 400) {
-            ancho = 400;
+            setAncho(400);
         }
 
         for (int y = 0; y < alto; y++) {
@@ -56,14 +78,17 @@ public class Imagen {
         System.out.println(alto + " - " + ancho);
 
     }
+    public void AjustarImagen(){
+        
+    }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         Imagen i = new Imagen();
         try {
             i.CargarImagen();
         } catch (IOException ex) {
             Logger.getLogger(Imagen.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 
 }
