@@ -20,9 +20,9 @@ import javax.imageio.stream.ImageInputStream;
  */
 public class Imagen {
 
-    public Color[][] bitmap;
-    public int ancho;
-    public int alto;
+    private Color[][] bitmap;
+    private int ancho;
+    private int alto;
 
     public Color[][] getBitmap() {
         return bitmap;
@@ -49,10 +49,10 @@ public class Imagen {
     }
 
     public Imagen() throws IOException {
-        CargarImagen();
+        cargarImagen();
     }
 
-    public void CargarImagen() throws FileNotFoundException, IOException {
+    private void cargarImagen() throws FileNotFoundException, IOException {
 
         InputStream input = new FileInputStream("data/imagen.bmp");
         ImageInputStream imageInput = ImageIO.createImageInputStream(input);
@@ -60,13 +60,13 @@ public class Imagen {
         
         setAlto(imagenL.getHeight());
         setAncho(imagenL.getWidth());
-        AjustarImagen(ancho,alto);
-        ArmarBitmap(imagenL);
+        ajustarImagen(ancho,alto);
+        armarBitmap(imagenL);
        
 
 
     }
-    public void AjustarImagen(int x , int y){
+    private void ajustarImagen(int x , int y){
         
         if (y > 300) {
             setAlto(300);
@@ -74,7 +74,7 @@ public class Imagen {
             setAncho(400);
         }
     }
-    public void ArmarBitmap(BufferedImage imagenL){
+    private void armarBitmap(BufferedImage imagenL){
         Color[][] bit = new Color[getAncho()][getAlto()];
          
         for (int y = 0; y < alto; y++) {
@@ -86,6 +86,7 @@ public class Imagen {
         }
         setBitmap(bit);
     }
+  
 
 
 }
