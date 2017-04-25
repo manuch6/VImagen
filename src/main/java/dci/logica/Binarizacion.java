@@ -39,7 +39,7 @@ public class Binarizacion implements Filtro {
                     nuevoVerde = 255;
                 }
 
-                im.bitmap[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
+                im.getBitmap()[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
 
             }
 
