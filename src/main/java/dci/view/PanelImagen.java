@@ -24,7 +24,7 @@ import javax.swing.JPanel;
  */
 public class PanelImagen extends JPanel{
     
-    Imagen imagen;
+    public Imagen imagen;
     BufferedImage img;
     ImageIcon icon;
     JLabel label;
