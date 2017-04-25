@@ -5,6 +5,9 @@
  */
 package dci.logica;
 
+import java.awt.Color;
+import java.awt.image.BufferedImage;
+
 /**
  *
  * @author dci
@@ -13,12 +16,16 @@ public class EscalaDeGrises implements Filtro {
 
     @Override
     public Imagen aplicarFiltro(Imagen im) {
-        for (int i = 0; i < 10; i++) {
-            for (int j = 0; j < 10; j++) {
-                //int r = componente rojo de la imagen;
-                //int g = componente verde de la imagen;
-                //int b = componente azul de la imagen;
-                //int gris = Math.round((float) (r + g + b) / 3);
+        BufferedImage image = null;
+        for (int x = 0; x < image.getWidth(); x++) {
+            for (int y = 0; y < image.getHeight(); y++) {
+                Color clr = new Color(image.getRGB(x, y));
+                int r = clr.getRed();
+                int g = clr.getGreen();
+                int b = clr.getBlue();
+                int gris = Math.round((float) (r + g + b) / 3);
+                Color clr2 = new Color(gris, gris, gris);
+                image.setRGB(x, y, clr2.getRGB());
             }
         }
         return new Imagen();
