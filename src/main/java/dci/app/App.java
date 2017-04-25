@@ -5,6 +5,8 @@
  */
 package dci.app;
 
+import dci.view.VentanaPrincipal;
+
 /**
  *
  * @author dci
@@ -16,6 +18,7 @@ public class App {
      */
     public static void main(String[] args) {
        
+        VentanaPrincipal v = new VentanaPrincipal();
     }
     
 }
