@@ -86,6 +86,11 @@ public class Imagen {
         }
         setBitmap(bit);
     }
+    
+    public BufferedImage obtenerImagen(){
+    
+        return null;
+    }
   
 
 

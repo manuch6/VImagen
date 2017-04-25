@@ -35,21 +35,33 @@ public class PanelImagen extends JPanel{
     
     private void initComponent(){
         
-        BoxLayout distribucion = new BoxLayout(this,1);
-        this.setLayout(distribucion);
+        this.icon = new ImageIcon();
+        this.label = new JLabel();
+        this.desplegarImagen();
         
-        try {
-            
-            //img = ImageIO.read(new File(imagen.getPath()));
-            img = ImageIO.read(new File("data/imagen.bmp"));
-            icon = new ImageIcon(img);
-            label = new JLabel(icon);
+//        BoxLayout distribucion = new BoxLayout(this,1);
+//        this.setLayout(distribucion);
+//        
+//        try {
+//            
+//            //img = ImageIO.read(new File(imagen.getPath()));
+//            img = ImageIO.read(new File("data/imagen.bmp"));
+//            icon = new ImageIcon(img);
+//            label = new JLabel(icon);
+//        
+//            this.add(label);
+//            
+//        } catch (IOException ex) {
+//            Logger.getLogger(PanelImagen.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+    }
+
+    private void desplegarImagen() {
         
-            this.add(label);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(PanelImagen.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.repaint();
+        this.icon.setImage(this.imagen.obtenerImagen());
+        this.label.setIcon(this.icon);
+        this.add(this.label);
     }
     
 }
