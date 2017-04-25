@@ -48,10 +48,11 @@ public class Imagen {
         this.alto = alto;
     }
 
-    public Imagen() {
+    public Imagen() throws IOException {
+        CargarImagen();
     }
 
-    public void cargarImagen() throws FileNotFoundException, IOException {
+    public void CargarImagen() throws FileNotFoundException, IOException {
 
         InputStream input = new FileInputStream("data/imagen.bmp");
         ImageInputStream imageInput = ImageIO.createImageInputStream(input);
@@ -59,36 +60,32 @@ public class Imagen {
         
         setAlto(imagenL.getHeight());
         setAncho(imagenL.getWidth());
+        AjustarImagen(ancho,alto);
+        ArmarBitmap(imagenL);
+       
 
-        if (imagenL.getHeight() > 300) {
+
+    }
+    public void AjustarImagen(int x , int y){
+        
+        if (y > 300) {
             setAlto(300);
-        } else if (imagenL.getHeight() > 400) {
+        } else if (x > 400) {
             setAncho(400);
         }
-
+    }
+    public void ArmarBitmap(BufferedImage imagenL){
+        Color[][] bit = new Color[getAncho()][getAlto()];
+         
         for (int y = 0; y < alto; y++) {
             for (int x = 0; x < ancho; x++) {
                 int pixel = imagenL.getRGB(x, y);
                 Color c = new Color(pixel);
-                bitmap[x][y] = c;
+                bit[x][y] = c;
             }
-
+            setBitmap(bit);
         }
-
-        System.out.println(alto + " - " + ancho);
-
-    }
-    public void AjustarImagen(){
-        
     }
 
-    /*public static void main(String[] args) {
-        Imagen i = new Imagen();
-        try {
-            i.CargarImagen();
-        } catch (IOException ex) {
-            Logger.getLogger(Imagen.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
 
 }
