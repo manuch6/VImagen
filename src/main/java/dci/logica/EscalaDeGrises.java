@@ -15,10 +15,10 @@ public class EscalaDeGrises implements Filtro {
     public Imagen aplicarFiltro(Imagen im) {
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-                int r = 1;
-                int g = 2;
-                int b = 3;
-                int gris = Math.round((float) (r + g + b) / 3);
+                //int r = componente rojo de la imagen;
+                //int g = componente verde de la imagen;
+                //int b = componente azul de la imagen;
+                //int gris = Math.round((float) (r + g + b) / 3);
             }
         }
         return new Imagen();
