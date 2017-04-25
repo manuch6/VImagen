@@ -10,5 +10,5 @@ package dci.logica;
  * @author dci
  */
 public class Imagen {
-    
+
 }
