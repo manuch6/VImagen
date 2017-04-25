@@ -18,35 +18,19 @@ public class Binarizacion implements Filtro {
 
     @Override
     public Imagen aplicarFiltro(Imagen im) {
-
         int Umbral = 122;
-
         for (int i = 0; i < im.ancho; i++) {
             for (int j = 0; j < im.alto; j++) {
-                int nuevoRojo = 0;
-                int nuevoAzul = 0;
-                int nuevoVerde = 0;
                 int rojo = im.bitmap[i][j].getRed();
                 int azul = im.bitmap[i][j].getBlue();
                 int verde = im.bitmap[i][j].getGreen();
-                if (rojo >= Umbral) {
-                    nuevoRojo = 255;
-                }
-                if (azul >= Umbral) {
-                    nuevoAzul = 255;
-                }
-                if (verde >= Umbral) {
-                    nuevoVerde = 255;
-                }
-
-                im.getBitmap()[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
-
+                int nuevoRojo = rojo < Umbral ? 0 : 255;
+                int nuevoAzul = azul < Umbral ? 0 : 255;
+                int nuevoVerde = verde < Umbral ? 0 : 255;
+                im.bitmap[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
             }
-
         }
-
         return im;
-
     }
 
 }
