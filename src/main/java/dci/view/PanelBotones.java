@@ -5,7 +5,7 @@
  */
 package dci.view;
 
-import javax.swing.BoxLayout;
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -24,13 +24,13 @@ public class PanelBotones extends JPanel {
     }
 
     private void initComponent() {
-        BoxLayout distribucion = new BoxLayout(this, 3);
+        GridLayout distribucion = new GridLayout(6, 1);
         this.setLayout(distribucion);
 
         this.btnNegativo = new JButton("Negativo");
         this.add(this.btnNegativo);
 
-        this.btnBinarizacion = new JButton("btnBinarizacion");
+        this.btnBinarizacion = new JButton("Binarizacion");
         this.add(this.btnBinarizacion);
 
         this.btnEscalaGrises = new JButton("Escala de Grises");
