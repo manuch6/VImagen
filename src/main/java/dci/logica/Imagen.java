@@ -83,8 +83,8 @@ public class Imagen {
                 Color c = new Color(pixel);
                 bit[x][y] = c;
             }
-            setBitmap(bit);
         }
+        setBitmap(bit);
     }
 
 
