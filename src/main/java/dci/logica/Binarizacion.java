@@ -12,23 +12,23 @@ import java.awt.Color;
  * @author dci
  */
 public class Binarizacion implements Filtro {
+    
+    Binarizacion(){}
+    
 
     @Override
     public Imagen aplicarFiltro(Imagen im) {
 
         int Umbral = 122;
 
-        //Color[][] color=im.imagen;
-        Color[][] color = new Color[256][256];
-
-        for (int i = 0; i < 256; i++) {
-            for (int j = 0; j < 256; j++) {
+        for (int i = 0; i < im.ancho; i++) {
+            for (int j = 0; j < im.alto; j++) {
                 int nuevoRojo = 0;
                 int nuevoAzul = 0;
                 int nuevoVerde = 0;
-                int rojo = color[i][j].getRed();
-                int azul = color[i][j].getBlue();
-                int verde = color[i][j].getGreen();
+                int rojo = im.bitmap[i][j].getRed();
+                int azul = im.bitmap[i][j].getBlue();
+                int verde = im.bitmap[i][j].getGreen();
                 if (rojo >= Umbral) {
                     nuevoRojo = 255;
                 }
@@ -39,7 +39,7 @@ public class Binarizacion implements Filtro {
                     nuevoVerde = 255;
                 }
 
-                color[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
+                im.bitmap[i][j] = new Color(nuevoRojo, nuevoVerde, nuevoAzul);
 
             }
 
